@@ -1,14 +1,15 @@
 import React from 'react';
 import { useI18n } from '../../lib/i18n.jsx';
-import SectionHeader from './SectionHeader';
-import ProjectGallery from './ProjectGallery';
+import SectionHeader from './SectionHeader.jsx';
+import ProjectGallery from './ProjectGallery.jsx';
 
 export default function References() {
   const { t } = useI18n();
   const r = t.refs;
+
   return (
-    <section id="references" className="py-24 px-6 md:px-8">
-      <div className="max-w-7xl mx-auto">
+    <section id="references" style={{padding:'96px 24px',background:'hsl(0 0% 4%)'}}>
+      <div style={{maxWidth:'1280px',margin:'0 auto'}}>
         <SectionHeader title={r.title} titleAccent={r.titleAccent} sub={r.sub} />
         <ProjectGallery />
       </div>

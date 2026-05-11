@@ -12,7 +12,7 @@ import Footer from '../components/klx/Footer.jsx';
 export default function Home() {
   return (
     <I18nProvider>
-      <div className="min-h-screen bg-background text-foreground" style={{fontFamily: "Inter, sans-serif"}}>
+      <div className="min-h-screen bg-background text-foreground" style={{ fontFamily: 'Inter, sans-serif' }}>
         <Header />
         <Hero />
         <About />

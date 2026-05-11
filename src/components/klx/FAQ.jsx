@@ -1,28 +1,36 @@
 import React, { useState } from 'react';
-import { useI18n } from '../../lib/i18n.jsx';
-import SectionHeader from './SectionHeader.jsx';
+import { useI18n } from '@/lib/i18n.jsx';
+import SectionHeader from './SectionHeader';
 
 export default function FAQ() {
-  var ctx = useI18n();
-  var f = ctx.t.faq;
-  var s1 = useState(null); var openIdx = s1[0]; var setOpenIdx = s1[1];
+  const { t } = useI18n();
+  const f = t.faq;
+  const [openIdx, setOpenIdx] = useState(null);
+
   return (
-    <section id="faq" style={{ padding: '96px 24px', background: 'hsl(0,0%,6%)' }}>
-      <div style={{ maxWidth: '56rem', margin: '0 auto' }}>
+    <section id="faq" className="py-24 px-6 md:px-8 bg-card">
+      <div className="max-w-4xl mx-auto">
         <SectionHeader title={f.title} titleAccent={f.titleAccent} sub={f.sub} />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-          {f.items.map(function(item, idx) {
-            var isOpen = openIdx === idx;
+        <div className="space-y-3">
+          {f.items.map((item, idx) => {
+            const isOpen = openIdx === idx;
             return (
-              <div key={idx} style={{ background: 'hsl(0,0%,4%)', border: '1px solid', borderColor: isOpen ? 'hsl(42,98%,53%)' : 'hsl(0,0%,14%)', borderRadius: '12px', overflow: 'hidden' }}>
-                <button onClick={function() { setOpenIdx(isOpen ? null : idx); }}
-                  style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '20px 24px', background: 'none', border: 'none', cursor: 'pointer', color: 'hsl(0,0%,95%)', fontWeight: 700, fontSize: '0.9375rem', textAlign: 'left' }}>
+              <div
+                key={idx}
+                className={`bg-background border rounded-xl overflow-hidden transition-colors ${isOpen ? 'border-primary' : 'border-border'}`}
+              >
+                <button
+                  onClick={() => setOpenIdx(isOpen ? null : idx)}
+                  className="w-full flex justify-between items-center px-6 py-5 text-left font-bold text-base select-none"
+                >
                   {item.q}
-                  <span style={{ color: 'hsl(42,98%,53%)', fontSize: '1.5rem', transform: isOpen ? 'rotate(45deg)' : 'none', transition: 'transform 0.3s', flexShrink: 0, marginLeft: '16px' }}>+</span>
+                  <span className={`text-primary text-2xl font-light transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`}>+</span>
                 </button>
-                {isOpen && (
-                  <div style={{ padding: '0 24px 20px', color: 'hsl(0,0%,55%)', fontSize: '0.875rem', lineHeight: 1.7 }}>{item.a}</div>
-                )}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-48 pb-5 px-6' : 'max-h-0'}`}
+                >
+                  <p className="text-muted-foreground text-sm leading-relaxed">{item.a}</p>
+                </div>
               </div>
             );
           })}

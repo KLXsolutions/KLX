@@ -1,22 +1,15 @@
-import { Toaster } from "@/components/ui/toaster"
-import { QueryClientProvider } from '@tanstack/react-query'
-import { queryClientInstance } from '@/lib/query-client'
+import React from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import PageNotFound from './lib/PageNotFound';
-import Home from '@/pages/Home';
+import Home from './pages/Home.jsx';
 
 function App() {
   return (
-    <QueryClientProvider client={queryClientInstance}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </Router>
-      <Toaster />
-    </QueryClientProvider>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 
-function App() {
+export default function App() {
   return (
     <Router>
       <Routes>
@@ -11,5 +11,3 @@ function App() {
     </Router>
   );
 }
-
-export default App;

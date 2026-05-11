@@ -13,14 +13,11 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${BG_URL})` }}
       />
-      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/95" />
-      {/* Grid Pattern */}
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
@@ -31,7 +28,6 @@ export default function Hero() {
       />
 
       <div className="relative z-10 text-center px-6 pt-32 pb-20 max-w-4xl mx-auto">
-        {/* Logo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -43,7 +39,6 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* Slogan - Always English */}
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,7 +49,6 @@ export default function Hero() {
           Empowering Homes, Energizing Industries.
         </motion.p>
 
-        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,7 +70,6 @@ export default function Hero() {
           </a>
         </motion.div>
 
-        {/* Stats */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

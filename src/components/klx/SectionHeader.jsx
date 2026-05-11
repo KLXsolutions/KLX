@@ -2,12 +2,14 @@ import React from 'react';
 
 export default function SectionHeader({ title, titleAccent, sub }) {
   return (
-    <div className="text-center mb-16">
-      <div className="w-14 h-1 bg-primary mx-auto mb-6 rounded-full" />
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight mb-4" style={{color: 'hsl(0 0% 95%)'}}>
-        {title} <span style={{color: 'hsl(42 98% 53%)'}}>{titleAccent}</span>
+    <div style={{ textAlign:'center', marginBottom:'64px' }}>
+      <div style={{ width:'56px', height:'4px', background:'hsl(42 98% 53%)', margin:'0 auto 24px', borderRadius:'999px' }} />
+      <h2 style={{ fontSize:'clamp(1.75rem, 4vw, 3rem)', fontWeight:900, letterSpacing:'-0.02em', marginBottom:'16px' }}>
+        {title} <span style={{ color:'hsl(42 98% 53%)' }}>{titleAccent}</span>
       </h2>
-      {sub && <p className="text-base md:text-lg max-w-xl mx-auto" style={{color: 'hsl(0 0% 55%)'}}>{sub}</p>}
+      {sub && (
+        <p style={{ color:'hsl(0 0% 55%)', fontSize:'1rem', maxWidth:'36rem', margin:'0 auto' }}>{sub}</p>
+      )}
     </div>
   );
 }

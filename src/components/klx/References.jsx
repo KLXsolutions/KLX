@@ -4,12 +4,11 @@ import SectionHeader from './SectionHeader.jsx';
 import ProjectGallery from './ProjectGallery.jsx';
 
 export default function References() {
-  const { t } = useI18n();
-  const r = t.refs;
-
+  var ctx = useI18n();
+  var r = ctx.t.refs;
   return (
-    <section id="references" style={{padding:'96px 24px',background:'hsl(0 0% 4%)'}}>
-      <div style={{maxWidth:'1280px',margin:'0 auto'}}>
+    <section id="references" style={{ padding:'96px 24px' }}>
+      <div style={{ maxWidth:'80rem', margin:'0 auto' }}>
         <SectionHeader title={r.title} titleAccent={r.titleAccent} sub={r.sub} />
         <ProjectGallery />
       </div>

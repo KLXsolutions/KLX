@@ -8,6 +8,7 @@ export default function Contact() {
   const { t } = useI18n();
   const c = t.contact;
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+
   const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = async (e) => {

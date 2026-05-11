@@ -45,11 +45,7 @@ export default function Header() {
               <button
                 key={l}
                 onClick={() => setLanguage(l)}
-                className={`px-3 py-1.5 text-xs font-bold rounded-full tracking-wide transition-all ${
-                  lang === l
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground hover:text-foreground'
-                }`}
+                className={`px-3 py-1.5 text-xs font-bold rounded-full tracking-wide transition-all ${lang === l ? 'bg-primary text-primary-foreground' : 'text-muted-foreground hover:text-foreground'}`}
               >
                 {l.toUpperCase()}
               </button>

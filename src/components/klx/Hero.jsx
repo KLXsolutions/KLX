@@ -1,48 +1,109 @@
 import React from 'react';
-import { useI18n } from '../../lib/i18n.jsx';
+import { useI18n } from '@/lib/i18n.jsx';
+import { motion } from 'framer-motion';
 
-const LOGO_URL = 'https://media.base44.com/images/public/user_6a00a71274279c19560dc38a/45c8a30c9_833144AB-385C-459B-A505-FF113C7374FD.png';
-const BG_URL = 'https://media.base44.com/images/public/user_6a00a71274279c19560dc38a/897d1f34b_IMG_3046.jpeg';
+const LOGO_URL = "https://media.base44.com/images/public/user_6a00a71274279c19560dc38a/45c8a30c9_833144AB-385C-459B-A505-FF113C7374FD.png";
+const BG_URL = "https://media.base44.com/images/public/user_6a00a71274279c19560dc38a/897d1f34b_IMG_3046.jpeg";
 
 export default function Hero() {
-  var ctx = useI18n();
-  var t = ctx.t;
-
-  var stats = [
-    { num: '10+', label: t.hero.stat1 },
-    { num: '500+', label: t.hero.stat2 },
-    { num: '24/7', label: t.hero.stat3 },
-  ];
+  const { t } = useI18n();
 
   return (
-    <section id="home" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-      <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(' + BG_URL + ')', backgroundSize: 'cover', backgroundPosition: 'center' }} />
-      <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,10,10,0.4), rgba(10,10,10,0.6), rgba(10,10,10,0.95))' }} />
-      <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', padding: '128px 24px 80px', maxWidth: '56rem', margin: '0 auto' }}>
-        <div style={{ marginBottom: '40px' }}>
-          <div style={{ width: '160px', height: '160px', margin: '0 auto', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 25px 50px rgba(250,180,0,0.25)', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <img src={LOGO_URL} alt="KLX Solutions" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${BG_URL})` }}
+      />
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/60 to-background/95" />
+      {/* Grid Pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
+        style={{
+          backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)',
+          backgroundSize: '60px 60px',
+          maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 75%)'
+        }}
+      />
+
+      <div className="relative z-10 text-center px-6 pt-32 pb-20 max-w-4xl mx-auto">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-10"
+        >
+          <div className="w-40 h-40 mx-auto rounded-3xl overflow-hidden shadow-2xl shadow-primary/25 border border-border/50">
+            <img src={LOGO_URL} alt="KLX Solutions Logo" className="w-full h-full object-cover" />
           </div>
-        </div>
-        <p style={{ fontSize: 'clamp(1rem, 2.5vw, 1.25rem)', color: 'hsl(0,0%,70%)', maxWidth: '480px', margin: '0 auto 40px', letterSpacing: '0.05em', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+        </motion.div>
+
+        {/* Slogan - Always English */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-10 tracking-wide"
+          style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
+        >
           Empowering Homes, Energizing Industries.
-        </p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '64px' }}>
-          <a href="#contact" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'hsl(42,98%,53%)', color: 'hsl(0,0%,4%)', fontWeight: 700, padding: '14px 28px', borderRadius: '999px', fontSize: '0.875rem', textDecoration: 'none', minHeight: '48px' }}>
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex justify-center gap-4 flex-wrap mb-16"
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-bold px-7 py-3.5 rounded-full text-sm hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30 transition-all min-h-[48px]"
+          >
             {t.hero.cta1}
           </a>
-          <a href="#services" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', border: '1px solid rgba(255,255,255,0.2)', color: 'hsl(0,0%,95%)', fontWeight: 700, padding: '14px 28px', borderRadius: '999px', fontSize: '0.875rem', textDecoration: 'none', minHeight: '48px', textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
+          <a
+            href="#services"
+            className="inline-flex items-center gap-2 border border-border text-foreground font-bold px-7 py-3.5 rounded-full text-sm hover:border-primary hover:text-primary transition-all min-h-[48px]"
+            style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}
+          >
             {t.hero.cta2}
           </a>
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap', paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-          {stats.map(function(s) { return (
-            <div key={s.num} style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 'clamp(2.5rem, 5vw, 3.5rem)', fontWeight: 900, color: 'hsl(42,98%,53%)', lineHeight: 1, textShadow: '0 2px 12px rgba(250,180,0,0.3)' }}>{s.num}</div>
-              <div style={{ fontSize: '0.7rem', color: 'hsl(0,0%,55%)', textTransform: 'uppercase', letterSpacing: '0.15em', marginTop: '8px', fontWeight: 500, textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}>{s.label}</div>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex justify-center gap-10 md:gap-16 flex-wrap pt-10 border-t border-border/50"
+        >
+          {[
+            { num: "10+", label: t.hero.stat1 },
+            { num: "500+", label: t.hero.stat2 },
+            { num: "24/7", label: t.hero.stat3 },
+          ].map((stat) => (
+            <div key={stat.num} className="text-center">
+              <div
+                className="text-4xl md:text-5xl font-black text-primary leading-none"
+                style={{ textShadow: '0 2px 12px hsla(var(--primary), 0.3)' }}
+              >
+                {stat.num}
+              </div>
+              <div
+                className="text-xs text-muted-foreground uppercase tracking-widest mt-2 font-medium"
+                style={{ textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}
+              >
+                {stat.label}
+              </div>
             </div>
-          ); })}
-        </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

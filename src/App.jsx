@@ -5,7 +5,6 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import Home from '@/pages/Home';
 import GitHubRepos from '@/pages/GitHubRepos';
-// Add page imports here
 
 function App() {
   return (

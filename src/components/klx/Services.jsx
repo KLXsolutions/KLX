@@ -1,21 +1,23 @@
 import React from 'react';
 import { useI18n } from '../../lib/i18n.jsx';
-import SectionHeader from './SectionHeader';
+import SectionHeader from './SectionHeader.jsx';
 
 export default function Services() {
   const { t } = useI18n();
   const s = t.services;
+
   return (
-    <section id="services" className="py-24 px-6 md:px-8">
-      <div className="max-w-6xl mx-auto">
+    <section id="services" style={{padding:'96px 24px',background:'hsl(0 0% 4%)'}}>
+      <div style={{maxWidth:'1152px',margin:'0 auto'}}>
         <SectionHeader title={s.title} titleAccent={s.titleAccent} sub={s.sub} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill, minmax(240px, 1fr))',gap:'20px'}}>
           {s.items.map((item, idx) => (
-            <div key={idx} className="group relative bg-card border border-border rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-primary hover:shadow-xl overflow-hidden">
-              <div className="absolute top-0 left-0 w-0 h-0.5 bg-primary transition-all duration-500 group-hover:w-full" />
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-2xl mb-4">{item.i}</div>
-              <h3 className="text-base font-bold mb-2 leading-tight">{item.t}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{item.d}</p>
+            <div key={idx} style={{background:'hsl(0 0% 6%)',border:'1px solid hsl(0 0% 14%)',borderRadius:'16px',padding:'24px',transition:'all 0.3s'}}>
+              <div style={{width:'48px',height:'48px',borderRadius:'12px',background:'rgba(251,191,36,0.1)',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'24px',marginBottom:'16px'}}>
+                {item.i}
+              </div>
+              <h3 style={{fontSize:'15px',fontWeight:700,marginBottom:'8px',color:'hsl(0 0% 95%)'}}>{item.t}</h3>
+              <p style={{fontSize:'13px',color:'hsl(0 0% 55%)',lineHeight:1.6}}>{item.d}</p>
             </div>
           ))}
         </div>

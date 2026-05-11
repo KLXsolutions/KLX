@@ -10,4 +10,4 @@ Professional electrical services website built with React + Vite + Tailwind CSS.
 - FAQ section
 
 ## Stack
-- React 18, Vite, Tailwind CSS, Framer Motion, shadcn/ui
+- React 18, Vite, Tailwind CSS, Framer Motion, shadcn/ui 
